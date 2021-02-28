@@ -22,6 +22,10 @@
     color: #5C184E;
 }
 
+.menuItem a.active {
+    color: brown;
+}
+
 .menuList {
     display: flex;
     flex-direction: column;

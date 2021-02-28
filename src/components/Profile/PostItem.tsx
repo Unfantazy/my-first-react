@@ -1,7 +1,7 @@
 import React from "react";
 import s from '../../styles/post.module.css';
 
-type PostType = {
+export type PostType = {
     text: string
     avatar: string
     like: number
@@ -16,7 +16,7 @@ export function MyPost(props: PostType) {
             <div className={s.post__text}>
                 {props.text}
             </div>
-            {/*<div className={s.post__like}>like:{props.like}</div>*/}
+            <div className={s.post__like}>like:{props.like}</div>
         </div>
 
     )
