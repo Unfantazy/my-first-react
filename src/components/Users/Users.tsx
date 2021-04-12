@@ -1,38 +1,17 @@
 import React from 'react'
 import s from '../../styles/users.module.css';
+import axios from "axios";
+import userPhoto from '../../assets/images/avatar.svg'
 
 export const Users = (props: any) => {
 
-
-    if(props.users.length === 0) {
-        props.setUsers([
-            {
-                id: 1,
-                followed: true,
-                fullName: 'Angelina',
-                status: "I know React",
-                location: {city: "Tula", country: "Russia"},
-                photoUrl: "https://png.pngtree.com/element_our/20190528/ourlarge/pngtree-520-couple-avatar-girls-image_1177386.jpg"
-            },
-            {
-                id: 2,
-                followed: true,
-                fullName: 'Andrew',
-                status: "I know React",
-                location: {city: "Kaluga", country: "Russia"},
-                photoUrl: "https://cdn.iconscout.com/icon/free/png-512/boy-avatar-4-1129037.png"
-            },
-            {
-                id: 3,
-                followed: false,
-                fullName: 'Dimych',
-                status: "I'm a boss ",
-                location: {city: "Minsk", country: "Belarus"},
-                photoUrl: "https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png"
-            },
-        ])
+    if (props.users.length === 0) {
+        axios
+            .get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => {
+                props.setUsers(response.data.items)
+            })
     }
-
 
     return <div className={s.users}>
         {props.users.map((u: any) =>
@@ -41,7 +20,7 @@ export const Users = (props: any) => {
                 <div className={s.userShow}>
                     <div className={s.userAvatar}>
                         <img
-                            src={u.photoUrl}
+                            src={u.photos.small !== null ? u.photos.small : userPhoto}
                             alt="avatar"/>
                     </div>
                     <div className={s.userFollowBtnWrapper}>
@@ -59,12 +38,12 @@ export const Users = (props: any) => {
 
                 <div className={s.userInfo}>
                     <div className={s.userInfoLeft}>
-                        <div className={s.userInfoName}>{u.fullName}</div>
+                        <div className={s.userInfoName}>{u.name}</div>
                         <div className={s.userInfoStatus}>{u.status}</div>
                     </div>
                     <div className={s.userInfoLocation}>
-                        <span className={s.userInfoCountry}>{u.location.country},</span>
-                        <span className={s.userInfoCity}>{u.location.city}</span>
+                        <span className={s.userInfoCountry}>{"u.location.country"},</span>
+                        <span className={s.userInfoCity}>{"u.location.city"}</span>
                     </div>
                 </div>
             </div>
