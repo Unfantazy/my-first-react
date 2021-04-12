@@ -5,15 +5,22 @@ import userPhoto from '../../assets/images/avatar.svg'
 
 export const Users = (props: any) => {
 
-    if (props.users.length === 0) {
-        axios
-            .get("https://social-network.samuraijs.com/api/1.0/users")
-            .then(response => {
-                props.setUsers(response.data.items)
-            })
+    let getUsers = () => {
+        if (props.users.length === 0) {
+            axios
+                .get("https://social-network.samuraijs.com/api/1.0/users")
+                .then(response => {
+                    props.setUsers(response.data.items)
+                })
+        }
     }
 
     return <div className={s.users}>
+
+        <button onClick={getUsers}>Get Users</button>
+        <br/>
+        <br/>
+
         {props.users.map((u: any) =>
             <div key={u.id} className={s.userBlock}>
 
