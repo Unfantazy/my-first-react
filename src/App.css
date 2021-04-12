@@ -44,7 +44,10 @@ li {
             "header header"
     "menu content";
 }
-
+textarea {
+    resize: none;
+    height: 40px;
+}
 
 
 

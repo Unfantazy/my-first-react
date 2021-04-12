@@ -1,0 +1,78 @@
+.users {
+    background-color: #D3F1F6;
+    padding: 20px;
+}
+
+.userBlock {
+    display: flex;
+    align-items: center;
+}
+
+.userAvatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #c4c4c4;
+}
+
+.userAvatar img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userFollowBtn {
+    background-color: #C2F3D2;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    text-transform: uppercase;
+    border: 2px solid #6F9E7E;
+    color: #001020;
+    font-weight: 700;
+    transition: .2s;
+    padding: 5px;
+}
+
+.userFollowBtn:hover {
+    background-color: #dbec9b;
+}
+
+.userShow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;
+    width: 100%;
+}
+
+.userInfo {
+    display: flex;
+    max-width: 250px;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-left: 30px;
+    border: 1px solid #c4c4c4;
+    color: #001020;
+}
+
+.userBlock + .userBlock {
+    margin-top: 40px;
+}
+
+.userInfoName {
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.userInfoLocation {
+    font-weight: 700;
+}
+
+.userInfoLocation span {
+    display: block;
+}

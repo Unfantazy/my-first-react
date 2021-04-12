@@ -8,6 +8,7 @@ export function Navbar(){
             <ul className={s.menuList}>
                 <li className={s.menuItem} ><NavLink to="/profile" activeClassName={s.active}>Profile</NavLink></li>
                 <li className={s.menuItem}><NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink></li>
+                <li className={s.menuItem}><NavLink to="/users" activeClassName={s.active}>Users</NavLink></li>
                 <li className={s.menuItem}><NavLink to="/news" activeClassName={s.active}>News</NavLink></li>
                 <li className={s.menuItem}><NavLink to="/music" activeClassName={s.active}>Music</NavLink></li>
                 <li className={s.menuItem}><NavLink to="/settings" activeClassName={s.active}>Settings</NavLink></li>

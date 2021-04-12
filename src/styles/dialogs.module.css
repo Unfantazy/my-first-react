@@ -1,8 +1,12 @@
-.dialogs {
+
+.dialogs__wrapper{
     width: 100%;
     height: 100vh;
     background-color: #ffe4e1;
     padding: 20px;
+}
+.dialogs {
+
     display: flex;
 }
 
@@ -32,4 +36,28 @@
 .dialog__message {
     height: 50px;
     padding: 10px;
+}
+
+.dialogs__add{
+    display: flex;
+    align-items: center;
+}
+.dialogs__textarea{
+    height: 40px;
+    width: 50%;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    padding: 10px;
+}
+.dialogs__btn{
+    width: 90px;
+    height: 40px;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: #F3CE75;
+    color: #1B2853;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
 }

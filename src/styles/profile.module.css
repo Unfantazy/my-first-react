@@ -2,7 +2,10 @@
     grid-area: content;
     background-color: #F6B783;
 }
-
+.postsForm{
+    display: flex;
+    align-items: center;
+}
 .contentImg {
     max-width: 100%;
     width: 100%;
@@ -64,7 +67,7 @@
 }
 
 .postsBtn {
-    width: 60px;
+    width: 90px;
     height: 40px;
     text-transform: uppercase;
     font-weight: 600;

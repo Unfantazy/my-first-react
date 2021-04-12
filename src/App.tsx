@@ -3,36 +3,44 @@ import './App.css';
 import {Header} from "./components/Header";
 import {Navbar} from "./components/Navbar";
 import {Profile} from "./components/Profile";
-import {Dialogs} from './components/Dialogs';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {News} from './components/News';
 import {Music} from './components/Music';
 import {Settings} from './components/Settings';
 import {Indicator} from './components/Indicator';
-import {RootStateType} from "./redux/state";
+import {DialogsContainer} from "./components/DialogsContainer";
+import {UsersContainer} from "./components/Users/UsersContainer";
 
-
-export type appStateType = {
-    state: RootStateType
+export type stateType = {
+     //state: RootStateType
+    // // addPost: () => void
+    // // addMessage: (dialogMessage: string) => void
+     //newPostText: string
+    // // updateNewPostText: (newText: string) => void
+     //dispatch: (action: any) => void
+    // store: any
 }
 
-function App(props: appStateType) {
+
+function App(props: stateType) {
 
     return (
         <BrowserRouter>
             <div className="appWrapper">
                 <Header/>
                 <Navbar/>
-                <Route path={"/profile"} render={() => <Profile posts={props.state.posts} /> }/>
-                <Route path={"/dialogs"} render={() => <Dialogs dialogsData={props.state.dialogsData} messagesData={props.state.messagesData}/> }/>
-                <Route path={"/news"} render={() => <News />}/>
+                <Route path={"/profile"} render={() => <Profile />}/>
+                <Route path={"/dialogs"} render={() => <DialogsContainer />}/>
+                <Route path={"/users"} render={() => <UsersContainer />}/>
+
+
+                <Route path={"/news"} render={() => <News/>}/>
                 <Route path={"/music"} render={() => <Music/>}/>
                 <Route path={"/settings"} render={() => <Settings/>}/>
                 <Route path={"/indicator"} render={() => <Indicator/>}/>
 
                 {/*<Indicator />*/}
                 {/*<Indicator />*/}
-
                 {/*<Profile />*/}
                 {/*<Dialogs/>*/}
             </div>
