@@ -1,36 +1,15 @@
 let initialState = {
-    users: [
-        //     {
-        //     id: 1,
-        //     followed: true,
-        //     fullName: 'Angelina',
-        //     status: "I know React",
-        //     location: {city: "Tula", country: "Russia"},
-        //     photoUrl: "https://png.pngtree.com/element_our/20190528/ourlarge/pngtree-520-couple-avatar-girls-image_1177386.jpg"
-        // },
-        //     {
-        //         id: 2,
-        //         followed: true,
-        //         fullName: 'Andrew',
-        //         status: "I know React",
-        //         location: {city: "Kaluga", country: "Russia"},
-        //         photoUrl: "https://cdn.iconscout.com/icon/free/png-512/boy-avatar-4-1129037.png"
-        //     },
-        //     {
-        //         id: 3,
-        //         followed: false,
-        //         fullName: 'Dimych',
-        //         status: "I'm a boss ",
-        //         location: {city: "Minsk", country: "Belarus"},
-        //         photoUrl: "https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png"
-        //     },
-    ],
-
+    users: [],
+    pageSize: 4,
+    totalUsersCount: 1,
+    currentPage: 1
 }
 
 let FOLLOW = "FOLLOW"
 let UNFOLLOW = "UNFOLLOW"
 let SET_USERS = "SET_USERS"
+let SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
+let SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
 
 export const usersReducer = (state: any = initialState, action: any) => {
 
@@ -59,7 +38,15 @@ export const usersReducer = (state: any = initialState, action: any) => {
             }
         }
         case SET_USERS: {
-            return {...state, users: [...state.users, ...action.users]}
+            return {...state, users: action.users}
+        }
+
+        case  SET_CURRENT_PAGE: {
+            return {...state, currentPage: action.currentPage}
+        }
+
+        case  SET_TOTAL_USERS_COUNT: {
+            return {...state, totalUsersCount: action.count}
         }
 
         default:
@@ -71,3 +58,5 @@ export const usersReducer = (state: any = initialState, action: any) => {
 export const followAC = (userId: string) => ({type: FOLLOW, userId})
 export const unfollowAC = (userId: string) => ({type: UNFOLLOW, userId})
 export const setUsersAC = (users: any) => ({type: SET_USERS, users})
+export const setCurrentPageAC = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setTotalUsersCountAC = (totalUsersCount: number) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})

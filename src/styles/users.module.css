@@ -76,3 +76,24 @@
 .userInfoLocation span {
     display: block;
 }
+
+
+.pagination{
+    margin-bottom: 40px;
+    display: flex;
+}
+.pagination span {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#fdfee9;
+    margin-right: 10px;
+}
+
+.pagination .selectedPage{
+    font-weight: 800;
+    background-color: #ffdab9;
+}
