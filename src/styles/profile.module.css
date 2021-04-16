@@ -34,8 +34,14 @@
     height: 140px;
     margin-right: 50px;
     border: 5px solid #1b2853;
-    padding: 20px;
+    padding: 5px;
     border-radius: 50%;
+}
+.contentAvatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
 }
 
 .contentName {

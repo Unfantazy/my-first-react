@@ -10,6 +10,7 @@ import {Settings} from './components/Settings';
 import {Indicator} from './components/Indicator';
 import {DialogsContainer} from "./components/DialogsContainer";
 import {UsersContainer} from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 export type stateType = {
      //state: RootStateType
@@ -29,7 +30,7 @@ function App(props: stateType) {
             <div className="appWrapper">
                 <Header/>
                 <Navbar/>
-                <Route path={"/profile"} render={() => <Profile />}/>
+                <Route path={"/profile/:userId?"} render={() => <ProfileContainer />}/>
                 <Route path={"/dialogs"} render={() => <DialogsContainer />}/>
                 <Route path={"/users"} render={() => <UsersContainer />}/>
 

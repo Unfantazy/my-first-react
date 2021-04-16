@@ -10,12 +10,11 @@ type ProfilePropsType ={
     // store: any
 }
 
-export function Profile(props: ProfilePropsType) {
-
+export function Profile(props: any) {
 
     return (
         <div className={s.content}>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <PostsContainer />
         </div>
     )
