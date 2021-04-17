@@ -11,6 +11,7 @@ import {Indicator} from './components/Indicator';
 import {DialogsContainer} from "./components/DialogsContainer";
 import {UsersContainer} from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 export type stateType = {
      //state: RootStateType
@@ -28,7 +29,7 @@ function App(props: stateType) {
     return (
         <BrowserRouter>
             <div className="appWrapper">
-                <Header/>
+                <HeaderContainer/>
                 <Navbar/>
                 <Route path={"/profile/:userId?"} render={() => <ProfileContainer />}/>
                 <Route path={"/dialogs"} render={() => <DialogsContainer />}/>
