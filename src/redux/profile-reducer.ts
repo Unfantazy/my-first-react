@@ -1,4 +1,5 @@
 import {postType} from "../components/Profile/Posts";
+import {usersAPI} from "../api/api";
 
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
@@ -34,7 +35,7 @@ export const profileReducer = (state: any = initialState, action: any) => {
             // return stateCopy
         }
         case UPDATE_NEW_POST_TEXT: {
-            return  {
+            return {
                 ...state,
                 newPostText: action.newText
             }
@@ -42,9 +43,9 @@ export const profileReducer = (state: any = initialState, action: any) => {
             // return stateCopy
         }
         case SET_USER_PROFILE: {
-            return  {
+            return {
                 ...state,
-               profile: action.profile
+                profile: action.profile
             }
             // stateCopy.newPostText = action.newText
             // return stateCopy
@@ -54,7 +55,12 @@ export const profileReducer = (state: any = initialState, action: any) => {
     }
 }
 
-
 export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostTextActionCreator = (text: string) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 export const setUserProfile = (profile: any) => ({type: SET_USER_PROFILE, profile})
+export const getUserProfile = (userId: string) => (dispatch: any) => {
+    usersAPI.getProfile(userId)
+        .then(response => {
+           dispatch(setUserProfile(response.data))
+        })
+}
