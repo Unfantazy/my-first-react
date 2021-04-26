@@ -45,7 +45,8 @@ export type dialogsPropsType = {
 let mapStateToProps = (state: any) => {
     return {
         messagesPage: state.MessagesPage,
-        newMessageText: state.newMessageText
+        newMessageText: state.newMessageText,
+        isAuth: state.auth.isAuth
     }
 }
 

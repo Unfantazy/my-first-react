@@ -14,7 +14,6 @@ export const authReducer = (state: any = initialState, action: any) => {
 
     switch (action.type) {
 
-
         case SET_USER_DATA: {
 
             return {

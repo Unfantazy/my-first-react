@@ -4,6 +4,7 @@ import {DialogItem} from "./Dialog/DialogItem";
 import {DialogMessage} from "./Dialog/DialogMessage";
 import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../redux/dialogs-reducer";
 import {messagesPagePropsType} from "../redux/store";
+import { Redirect } from "react-router-dom";
 
 
 export type dialogType = {
@@ -22,6 +23,7 @@ export type dialogsPropsType = {
     sendMessage:() => void
     messagesPage: messagesPagePropsType
     newMessageText: string
+    isAuth: boolean
 }
 
 
@@ -45,6 +47,10 @@ export function Dialogs(props: dialogsPropsType) {
         let text = e.currentTarget.value
         props.updateNewMessageText(text)
     }
+
+   if(!props.isAuth) {
+       return <Redirect to={"/login"} />
+   }
 
     return (
         <div className={s.dialogs__wrapper}>

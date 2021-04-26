@@ -12,6 +12,7 @@ import {DialogsContainer} from "./components/DialogsContainer";
 import {UsersContainer} from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import {Login} from "./components/Login";
 
 export type stateType = {
      //state: RootStateType
@@ -40,6 +41,7 @@ function App(props: stateType) {
                 <Route path={"/music"} render={() => <Music/>}/>
                 <Route path={"/settings"} render={() => <Settings/>}/>
                 <Route path={"/indicator"} render={() => <Indicator/>}/>
+                <Route path={"/login"} render={() => <Login/>}/>
 
                 {/*<Indicator />*/}
                 {/*<Indicator />*/}
