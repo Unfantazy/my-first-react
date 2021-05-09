@@ -8,11 +8,11 @@ import {News} from './components/News';
 import {Music} from './components/Music';
 import {Settings} from './components/Settings';
 import {Indicator} from './components/Indicator';
-import {DialogsContainer} from "./components/DialogsContainer";
-import {UsersContainer} from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {Login} from "./components/Login";
+import DialogsContainer from "./components/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 export type stateType = {
      //state: RootStateType

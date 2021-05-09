@@ -9,6 +9,8 @@ import {
 import UsersFunc from "./Users";
 import s from '../../styles/users.module.css';
 import {Preloader} from "../common/Preloader";
+import {WithAuthRedirect} from "../../hoc/WithAuthRedirect";
+import {compose} from "redux";
 
 class UsersAPI extends React.Component<any, any> {
 
@@ -36,7 +38,6 @@ class UsersAPI extends React.Component<any, any> {
     }
 }
 
-
 let mapStateToProps = (state: any) => {
     return {
         users: state.usersPage.users,
@@ -48,7 +49,6 @@ let mapStateToProps = (state: any) => {
     }
 }
 
-
 const ActionCreators = {
     follow,
     unfollow,
@@ -57,4 +57,9 @@ const ActionCreators = {
     getUsers
 }
 
-export const UsersContainer = connect(mapStateToProps, ActionCreators)(UsersAPI)
+export default compose<React.ComponentType>(
+    WithAuthRedirect,
+    connect(mapStateToProps, ActionCreators)
+)(UsersAPI)
+
+// export const UsersContainer = WithAuthRedirect(connect(mapStateToProps, ActionCreators)(UsersAPI))

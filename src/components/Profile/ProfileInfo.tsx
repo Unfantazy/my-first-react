@@ -1,6 +1,7 @@
 import s from "../../styles/profile.module.css";
 import React from "react";
 import {Preloader} from "../common/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 export function ProfileInfo(props: any) {
 
@@ -12,12 +13,12 @@ export function ProfileInfo(props: any) {
     } else {
         return (
             <div>
-                <div className={s.contentImg}>
+                {/*<div className={s.contentImg}>*/}
 
-                    <img
-                        src="https://www.visitflorida.com/content/dam/visitflorida/en-us/images/cities/panama-city-beach/St%20Andrews%20State%20Park%20Beach%2002.jpg.1280.500.rendition"
-                        alt=""/>
-                </div>
+                {/*    <img*/}
+                {/*        src="https://www.visitflorida.com/content/dam/visitflorida/en-us/images/cities/panama-city-beach/St%20Andrews%20State%20Park%20Beach%2002.jpg.1280.500.rendition"*/}
+                {/*        alt=""/>*/}
+                {/*</div>*/}
 
 
 
@@ -29,6 +30,7 @@ export function ProfileInfo(props: any) {
 
                     <div className={s.contentInfo}>
                         <div className={s.contentName}>Angelina</div>
+                        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                         <div className={s.contentBirth + '' + s.contentInformation}> Birthday: 09/02/1998</div>
                         <div className={s.contentCity + '' + s.contentInformation}>City: Tula</div>
                         <div className={s.contentEducation + '' + s.contentInformation}>Education: Tula State Pedagogigal

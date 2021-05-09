@@ -48,7 +48,7 @@
     text-transform: uppercase;
     font-weight: 600;
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .contentInformation {
@@ -93,4 +93,8 @@
 .contentComments {
     padding-left: 20px;
     margin-top: 20px;
+}
+
+.profileStatus{
+    margin-bottom: 10px;
 }

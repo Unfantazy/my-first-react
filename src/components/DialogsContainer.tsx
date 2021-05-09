@@ -1,11 +1,9 @@
 import React from "react";
-import s from '../styles/dialogs.module.css';
-import {DialogItem} from "./Dialog/DialogItem";
-import {DialogMessage} from "./Dialog/DialogMessage";
 import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../redux/dialogs-reducer";
 import {Dialogs} from "./Dialogs";
-import {RootStateType} from "../redux/redux-store";
 import {connect} from "react-redux";
+import {WithAuthRedirect} from "../hoc/WithAuthRedirect";
+import {compose} from "redux";
 
 
 export type dialogType = {
@@ -22,24 +20,6 @@ export type dialogsPropsType = {
     // dispatch: (action: { type: string, message?: string }) => void
     store: any
 }
-
-
-// export function DialogsContainer(props: dialogsPropsType) {
-//
-//     let messagesPage: RootStateType = props.store.getState();
-//
-//     const addMessage = () => {
-//         props.store.dispatch(addMessageActionCreator())
-//     }
-//     const onNewMessageChange = (text: string) => {
-//         props.store.dispatch(updateNewMessageTextActionCreator(text))
-//     }
-//
-//     return (
-//         <Dialogs updateNewMessageText={onNewMessageChange} sendMessage={addMessage}
-//                  messagesPage={messagesPage.MessagesPage}/>
-//     );
-// }
 
 
 let mapStateToProps = (state: any) => {
@@ -61,4 +41,8 @@ let mapDispatchToProps = (dispatch: any) => {
     }
 }
 
-export const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+export default compose<React.ComponentType>(
+    connect(mapStateToProps, mapDispatchToProps),
+    WithAuthRedirect
+)(Dialogs)
+

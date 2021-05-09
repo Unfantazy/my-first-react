@@ -1,9 +1,10 @@
 import {postType} from "../components/Profile/Posts";
-import {usersAPI} from "../api/api";
+import {profileAPI, usersAPI} from "../api/api";
 
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 const SET_USER_PROFILE = "SET_USER_PROFILE"
+const SET_STATUS = "SET_STATUS"
 
 let initialState = {
     posts: [
@@ -11,7 +12,8 @@ let initialState = {
         {id: 2, message: "How're you", likesCount: 10}
     ],
     newPostText: "",
-    profile: null
+    profile: null,
+    status: ""
 }
 
 export const profileReducer = (state: any = initialState, action: any) => {
@@ -50,6 +52,14 @@ export const profileReducer = (state: any = initialState, action: any) => {
             // stateCopy.newPostText = action.newText
             // return stateCopy
         }
+        case SET_STATUS: {
+            return {
+                ...state,
+                status: action.status
+            }
+            // stateCopy.newPostText = action.newText
+            // return stateCopy
+        }
         default:
             return state
     }
@@ -58,9 +68,24 @@ export const profileReducer = (state: any = initialState, action: any) => {
 export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostTextActionCreator = (text: string) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 export const setUserProfile = (profile: any) => ({type: SET_USER_PROFILE, profile})
+export const setStatus = (status: string) => ({type: SET_STATUS, status})
 export const getUserProfile = (userId: string) => (dispatch: any) => {
     usersAPI.getProfile(userId)
         .then(response => {
-           dispatch(setUserProfile(response.data))
+            dispatch(setUserProfile(response.data))
+        })
+}
+export const getStatus = (userId: string) => (dispatch: any) => {
+    profileAPI.getStatus(userId)
+        .then(response => {
+            dispatch(setStatus(response.data))
+        })
+}
+export const updateStatus = (status: string) => (dispatch: any) => {
+    profileAPI.updateStatus(status)
+        .then(response => {
+            if(response.data.resultCode === 0) {
+                dispatch(setStatus(status))
+            }
         })
 }
